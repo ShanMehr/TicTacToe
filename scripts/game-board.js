@@ -4,6 +4,8 @@ const GameBoard = (function(){
 
     }
     let makeBoard=()=>{
+
+        // Creates the board
         const window= document.getElementById("container");
         const boardDisplay= document.createElement("div");
         boardDisplay.setAttribute("id","game-input-container");
@@ -60,12 +62,14 @@ const TicTacToe=(function(){
     let player2WinCount=0;
     const board = new GameBoard();
     let startGame=()=>{       
+        loadStartScreen();
         board.makeBoard();
 
     }
     let loadStartScreen=()=>{
         //makes the start screen 
-        const container = document.getElementById("game-input-container");
+        const container = document.getElementById("container");
+        
     }   
     return{startGame}
 });
