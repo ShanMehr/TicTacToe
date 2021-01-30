@@ -1,11 +1,54 @@
 
 
-
-.cell{
-background-color: rgb(51, 44, 39);
-
+body{
+   color:white
 }
 
-#game-container{
-    background-color: green;
+
+
+#container{
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    height:500px;
+ 
+    
+    
+}
+
+
+#game-input-container{
+    width:500px;
+    height:400px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background-color: #14bdac;
+}
+
+.game-container
+{
+    display:grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+   
+}
+
+
+
+.board-row{
+    display:flex;
+    justify-content: center;
+    align-items:center; 
+}
+
+.board-col{
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    background-color:  #14bdac;
+    width:100px;
+    height:100px;
+    border-color: #3b3b3b;
+    font-size:40px;
+    border-style:solid;
 }
