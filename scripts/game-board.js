@@ -7,25 +7,22 @@ const GameBoard = (function(){
     }
     const makeBoard=()=>{
 
-        // Creates the board
+        
         const window= document.getElementById("container");
-
+        
+        //Makes board's container
         const boardDisplay= document.createElement("div");
         boardDisplay.setAttribute("id","game-input-container");
         window.appendChild(boardDisplay);
 
+        // Creates the board
         const container = document.createElement("div");        
         container.setAttribute("id","game-container");
         boardDisplay.appendChild(container);
 
+        // Creates the cells of the board
         for (i = 0; i < 3; i++) {
-            /*
-            const row = document.createElement("div");
-            row.setAttribute("id",`row-${i}`);
-            row.className="board-row";
-                       
-            container.appendChild(row);
-            */
+           
             const boardRow=[];
 
             for(j=0;j<3;j++){
@@ -38,41 +35,52 @@ const GameBoard = (function(){
                 boardRow.push(col);
             }
             board.push(boardRow);
-            
           }
+
+          // Add's to the cells to mark the value from parameter
+          addListeners("z");
           console.log(board);
     }
-    const moveIsValid=()=>{
-        // Previous entry not chosen
-    }
+ 
     const isWinner=(string)=>{
-        // checks if the string entered won
+        // checks if the string entered won the game
         return false;
     }
 
+    let displayMoveListeners=(e,string)=>{
+        // Callback funtion for event adding event listeners to all the cells of the board
+        displayMove(string);
+    }
+
     const addListeners=(string)=>{
+        // Adds click listeners to each cell on the board
         for(i=0;i<3;i++){
             for(j=0;j<3;j++){
-                board[i][j].addEventListener("click",displayMove(string));                
+                console.log("adding listeners");  
+                board[i][j].addEventListener("click",displayMoveListeners);                
             }
         }
-    }
-    const displayMove=(e,string)=>{
-        if(e.innerHTML!==""){
-            return false;
+    }   
+    
+    function displayMove(string="X") {
+        console.log(event.target);
+        if(event.target.innerHTML==""){
+            // Add a
+            event.target.innerHTML=string;
+            removeListenersFromCells();
         }
         else{
-            e.innerHTML=string;
-            removeListenersFromCells();
-            return true;
-
+            // Do nothing if the cell is filled
+            console.log("boxfilled")
         }
+        console.log(string);
+     
     }
 
     const removeListenersFromCells=()=>{
         for(i=0;i<3;i++){
             for(j=0;j<3;j++){
-                board[i][j].removeEventListener("click")             
+                board[i][j].removeEventListener("click",displayMoveListeners)             
             }
         }
     }

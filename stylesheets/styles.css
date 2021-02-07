@@ -4,7 +4,7 @@ body{
 }
 
 #container{
-    background-color:green;
+    
     display:flex;
     justify-content: center;
     height:500px;
@@ -25,12 +25,11 @@ body{
     display:flex;
     justify-content:center;
     align-items:center;
-    background-color: #14bdac;
-}
+    border-radius:25px;
+    }
 
 #game-container
 {
-    background-color:red;
     display:grid;
     grid-template-columns: 100px 100px 100px;
     grid-template-rows: 100px 100px 100px;
@@ -43,6 +42,8 @@ body{
     display:flex;
     justify-content: center;
     align-items:center; 
+    border-radius:25px;
+    
 }
 
 .board-col{
